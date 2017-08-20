@@ -1,0 +1,5 @@
+* Para exportar los datos desde mongo:
+mongoexport --host localhost --db bigdata_201720 --collection north_korea_tweets --type=csv --out ~/bigdata.csv --fields=timestamp_ms,place.country,coordinates.coordinates.0,coordinates.coordinates.1,retweeted_status.user.id,retweeted_status.user.name,retweeted_status.retweet_count --authenticationDatabase=admin --username=admin
+
+* Para importar a PosgreSQL (dentro del shell de psql y conectado a la base de datos):
+COPY dump01 FROM '~/bigdata.csv' CSV
